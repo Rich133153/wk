@@ -2,6 +2,16 @@
 <html>
 
 <head>
+    <script>
+        fetch('https://v1.hitokoto.cn/?c=k')
+          .then(response => response.json())
+          .then(data => {
+            const hitokoto = document.getElementById('hitokoto_text')
+            hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+            hitokoto.innerText = data.hitokoto
+          })
+          .catch(console.error)
+      </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +53,7 @@
                 z-index:-10;
                 zoom: 1;
                 background-color: #fff;
-                background: url(https://voidtech.cn/i/2022/11/28/nukvk8.png);
+                background: url(http://blog1.yuxiao.ga/school.png);
                 background-repeat: no-repeat;
                 background-size: cover;
                 -webkit-background-size: cover;
@@ -363,15 +373,14 @@
 
 
     <div class="blink">
-        <a href="https://wangke.yuxiao.ga/" target="_blank"
-            title="网站中转">即将奔赴<br />Welcome back, coming soon...</a>
+        <p id="hitokoto"><a href="https://wangke.yuxiao.ga/" id="hitokoto_text">:D 获取中...</a><br><a href="https://wangke.yuxiao.ga/">Wellcome back...</a></p>
     </div>
     <script>
     function jumpUrl(){
         var arr = new Array(
-            "http://yxy1331531.my-place.us/1/",
-            "http://blog1.yuxiao.ga/1/",
+            "https://wangke.yuxiao.ga/1.html",
             "http://www.cchsbbs.ga/1/",
+            "http://blog1.yuxiao.ga/1/",
         );
      window.location.href = arr[Math.floor(Math.random() * arr.length)];
     }
